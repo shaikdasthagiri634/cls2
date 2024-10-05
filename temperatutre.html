@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+</head>
+<style>
+    * {
+        text-align: center;
+    }
+
+    #container {
+        width: 20%;
+        margin: auto;
+        border: none;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #selection {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    #convert {
+        padding: 10px 20px;
+        margin: auto;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        background-color: aqua;
+        border-radius: 5px;
+        border: 1px solid rgb(38, 185, 185);
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    #convert:hover {
+        transform: scale(1.1);
+    }
+
+    #output,
+    #given {
+        width: 80%;
+        margin: auto;
+        border: 1px solid grey;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    select {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid grey;
+        background-color: aliceblue;
+    }
+</style>
+
+<body>
+
+    <body>
+        <h2>Temperature Converter</h2>
+        <div id="container">
+            <input id="given" type="number" placeholder="Enter given Temperature here">
+            <br>
+            <div id="selection"> 
+                <select name="" id="temp1">
+                    <option value="K">Kelvin</option>
+                    <option value="C">Celcius</option>
+                    <option value="F">Farenhite</option>
+                </select>
+                <select name="" id="temp2">
+                    <option value="K">Kelvin</option>
+                    <option value="F">Farenhite</option>
+                    <option value="C">Celcius</option>
+                </select>
+            </div>
+            <br>
+            <button id="convert" onclick="giveResult()">Convert ></button>
+            <br>
+            <div id="output">
+                <h2></h2>
+            </div>
+        </div>
+
+    </body>
+
+    <script>
+
+        function Converter(temp1, temp2, value) {
+            let result = value; // Start with the original value
+
+            if (temp1 === "K" && temp2 === "F") {
+                result = (value - 273.15) * (9 / 5) + 32; // Kelvin to Fahrenheit
+                return result;
+            }
+
+            if (temp1 === "K" && temp2 === "C") {
+                result = value - 273.15; // Kelvin to Celsius
+                return result;
+            }
+
+            if (temp1 === "F" && temp2 === "C") {
+                result = (value - 32) * (5 / 9); // Fahrenheit to Celsius
+                return result;
+            }
+
+            if (temp1 === "F" && temp2 === "K") {
+                result = (value - 32) * (5 / 9) + 273.15; // Fahrenheit to Kelvin
+                return result;
+            }
+
+            if (temp1 === "C" && temp2 === "K") {
+                result = value + 273.15; // Celsius to Kelvin
+                return result;
+            }
+
+            if (temp1 === "C" && temp2 === "F") {
+                result = (value * (9 / 5)) + 32; // Celsius to Fahrenheit
+                return result;
+            }
+
+            return result; // If no conversions were done, return the original value
+        }
+
+        function giveResult (){
+            // console.log("Yasin");
+            let givenValue = document.getElementById("given").value;
+            // console.log("ans",givenValue);
+            let temp1 = document.getElementById("temp1").value;
+            // console.log("temp1",temp1);
+            let temp2 = document.getElementById("temp2").value;
+            // console.log("temp2",temp2);/
+
+            let answer = Converter(temp1,temp2,parseFloat(givenValue));
+            // console.log(temp1,temp2,givenValue,answer);
+            document.getElementById("output").innerText = answer;
+        }
+
+
+
+    </script>
+
+</html>
