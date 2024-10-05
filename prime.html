@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>yasin</h1>
+</body>
+<script>
+function isPrime(n){
+    if(n < 2){
+    return `${n} is not a prime`;
+}
+   for(let i=2;i <=  Math.sqrt(n); i++){
+    if(n % i === 0){
+        return `${n} is not a prime number`;
+    }
+
+   }
+   return `${n} is  a prime number`;
+  
+}
+ console.log(isPrime(6))
+
+</script>
+</html>
