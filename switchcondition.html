@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+</body>
+</html>
+
+
+<script>
+let simulatedDay=5;
+switch(simulatedDay){
+case 0:
+  Day= "Sunday";
+  break;
+case 1:
+  Day= "Monday";
+  break;
+case 2:
+  Day= "Tuseday";
+  break;
+case 3:
+  Day= "Wenesday";
+  break;
+case 4:
+  Day= "Thursday";
+  break;
+case 5:
+  Day= "Friday";
+  break;
+case 6:
+  Day= "Satruday";
+  break;
+}
+document.getElementById("demo").innerHTML="Today is" +Day;
+
+
+</script>
