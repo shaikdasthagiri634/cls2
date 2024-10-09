@@ -11,13 +11,18 @@
     <h1>High</h1>
     <p id="demo"></p>
 
-    <script>
+    <body>
+        <script>
         const person = {
             firstName: "Jhon",
             lastName: "doe",
             age: 50,
         };
-        document.getElementById("demo").innerHTML = person.firstName + "is" + person.age + "yearsold";
+        let x="firstName";
+        let y="age";
+
+        document.getElementById("demo").innerHTML = person[x] + " is "+ person[y] + " yearsold.";
     </script>
+    
 </body>
 </html>
