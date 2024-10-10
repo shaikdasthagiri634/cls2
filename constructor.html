@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>constructor in java script for this condition</h1>
+    <p id="demo"></p>
+    <script>
+        function person(first, last, age, eyes) {
+            this.firstName=first;
+            this.lastName=last;
+            this.age=age;
+            this.eyes=eyes;
+            this.fullName=function() {
+                return this.firstName+ " " + this.lastName;
+            };
+        }
+            const myFather = new person("jhon","doe","50","blue");
+
+      
+        document.getElementById("demo").innerHTML = "myfather name is "+ myFather.fullName();
+    </script>
+</body>
+</html>
+
+
