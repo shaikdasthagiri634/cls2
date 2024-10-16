@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>Document</title>
+    <style>
+        section{
+            display: flex;
+            justify-content: center;
+        }
+   
+       #container{
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+             width: 220px;
+            
+        }
+        #h1{
+            display: flex;
+            justify-content: center;
+
+        }
+        #given{
+            margin-left: 25px;
+        }
+        #col-1{
+            display: flex;
+            justify-content: center;  
+        }
+        #col-2{
+            display: flex;
+            justify-content: center;  
+        }
+        #col-3{
+            display: flex;
+            justify-content: center;  
+        }
+        #col-4{
+            display: flex;
+            justify-content: center;  
+        }
+       
+       
+    </style>
+</head>
+<body>
+     <section>
+        <div id="container">
+            <h1 id="h1">Calculator</h1>
+            <input id="given" type="text" placeholder="Enter the number">
+            <div id="keys" style="padding: 1%;">
+                    
+                <div id="col-1">
+                <i class="fa-solid fa-1" onclick="clicktostart('1')" style="padding: 10px;"></i>
+                <i class="fa-solid fa-2" onclick="clicktostart('2')"style="padding: 10px;"></i>
+                <i class="fa-solid fa-3" onclick="clicktostart('3')"style="padding: 10px;"></i>
+                <i class="fa-solid fa-plus" onclick="clicktostart('+')"style="padding: 10px;"></i>
+            </div>
+            <div id="col-2">
+                <i class="fa-solid fa-4" onclick="clicktostart('4')" style="padding: 10px;"></i>
+                <i class="fa-solid fa-5" onclick="clicktostart('5')"style="padding: 10px;"></i>
+                <i class="fa-solid fa-6" onclick="clicktostart('6')"style="padding: 10px;"></i>
+                <i class="fa-solid fa-minus" onclick="clicktostart('-')"style="padding: 10px;"></i>
+            </div>
+            <div id="col-3">
+                <i class="fa-solid fa-7" onclick="clicktostart('7')" style="padding: 10px;"></i>
+                <i class="fa-solid fa-8" onclick="clicktostart('8')"style="padding: 10px;"></i>
+                <i class="fa-solid fa-9" onclick="clicktostart('9')"style="padding: 10px;"></i>
+                <i class="fa-solid fa-divide" onclick="clicktostart('/')"style="padding: 10px;"></i>
+            </div>
+            <div id="col-4">
+                <i class="fa-solid fa-0" onclick="clicktostart('0')" style="padding: 10px;"></i>
+                <i class="fa-solid fa-circle" onclick="clicktostart('.')" style="font-size: 5px; padding: 10px;"></i>  
+                <i class="fa-solid fa-delete-left" onclick="removeLastCharacter()"style="padding: 10px;"></i>
+                <i class="fa-solid fa-equals" onclick="calculateResult()"style="padding: 10px;"></i>
+            </div>
+            </div>
+        </div>
+     </section>
+</body>
+<script>
+function clicktostart(value) {
+            const inputField = document.getElementById('given');
+            inputField.value += value;
+        }
+        function calculateResult() {
+            const inputField = document.getElementById('given');
+            try {
+                const result = eval(inputField.value);
+                inputField.value = result;
+            } catch (error) {
+                inputField.value = 'Error';
+            }
+        }
+        function removeLastCharacter() {
+            const inputField = document.getElementById('given');
+            inputField.value = inputField.value.slice(0, -1);
+        }
+</script>
+
+</html>
